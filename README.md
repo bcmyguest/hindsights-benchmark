@@ -2,6 +2,8 @@
 
 A small experiment for personal, organizational, and event memory, with source-backed figures and MLflow traces/evaluation. All included people, policies, incidents, and numbers are synthetic.
 
+**[Open the published visual reports](https://bcmyguest.github.io/hindsights-benchmark/)** or read the [results guide](RESULTS.md). The reports are saved diagnostics from a small sample; they are not official memory-bench scores.
+
 **Start with the no-model harness, then run the same graph against real Hindsight.** DuckDB is a test double and source snapshot registry. It does not replace Hindsight's PostgreSQL engine or reproduce its semantic/graph retrieval.
 
 ## Design decisions
