@@ -1,0 +1,46 @@
+{
+  "none": {
+    "precision": 1.0,
+    "recall": 0.2222222222222222,
+    "answer_pass": 0.2222222222222222,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 44.35125140783688,
+    "positive_precision": 0.0,
+    "positive_recall": 0.0,
+    "abstention_accuracy": 1.0
+  },
+  "personal": {
+    "precision": 1.0,
+    "recall": 0.2777777777777778,
+    "answer_pass": 0.3333333333333333,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 44.0695435843534,
+    "positive_precision": 0.14285714285714285,
+    "positive_recall": 0.07142857142857142,
+    "abstention_accuracy": 1.0
+  },
+  "federated": {
+    "precision": 0.9259259259259259,
+    "recall": 0.8888888888888888,
+    "answer_pass": 0.8888888888888888,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 84.56876307415466,
+    "positive_precision": 0.7619047619047619,
+    "positive_recall": 0.8571428571428571,
+    "abstention_accuracy": 1.0
+  },
+  "gated": {
+    "precision": 0.9259259259259259,
+    "recall": 0.8888888888888888,
+    "answer_pass": 0.8888888888888888,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 75.57732205734484,
+    "positive_precision": 0.7619047619047619,
+    "positive_recall": 0.8571428571428571,
+    "abstention_accuracy": 1.0
+  }
+}

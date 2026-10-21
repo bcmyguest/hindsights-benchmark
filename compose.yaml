@@ -1,0 +1,96 @@
+name: hindsight-memory-poc
+services:
+  reports:
+    image: python:3.12-alpine
+    command: ["python", "-m", "http.server", "8765", "--bind", "0.0.0.0", "--directory", "/reports"]
+    ports: ["127.0.0.1:8765:8765"]
+    volumes: ["./results:/reports:ro"]
+  mlflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.mlflow
+    command: ["--host", "0.0.0.0", "--port", "5000", "--backend-store-uri", "sqlite:////tracking/mlflow.db", "--serve-artifacts", "--artifacts-destination", "/tracking/artifacts", "--allowed-hosts", "mlflow:5000,localhost:5000,127.0.0.1:5000"]
+    ports: ["127.0.0.1:5000:5000"]
+    volumes: ["mlflow-data:/tracking"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  app:
+    profiles: ["tools"]
+    build: .
+    environment:
+      MEMORY_BACKEND: ${MEMORY_BACKEND:-duckdb}
+      POC_STATE: /state/${MEMORY_BACKEND:-duckdb}
+      BANK_PREFIX: ${BANK_PREFIX:-poc}
+      HINDSIGHT_URL: http://hindsight:8888
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+      MLFLOW_EXPERIMENT_NAME: three-scope-memory
+      MODEL_BASE_URL: http://ollama:11434/v1
+      MODEL_NAME: ${MODEL_NAME:-qwen2.5:7b}
+      MODEL_API_KEY: ollama
+      GATE_MODEL: ${GATE_MODEL:-rules}
+      WRITE_MODEL: ${WRITE_MODEL:-rules}
+      ANSWER_MODEL: ${ANSWER_MODEL:-extractive}
+      RETRIEVAL_MODE: ${RETRIEVAL_MODE:-hybrid}
+    volumes: ["app-state:/state", "./results:/app/results"]
+    depends_on:
+      mlflow: {condition: service_healthy}
+  ollama:
+    profiles: ["live"]
+    image: ollama/ollama:latest
+    ports: ["127.0.0.1:${OLLAMA_HOST_PORT:-11435}:11434"]
+    volumes: ["ollama-data:/root/.ollama"]
+    environment:
+      OLLAMA_NUM_PARALLEL: "1"
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  model-init:
+    profiles: ["live"]
+    image: ollama/ollama:latest
+    entrypoint: ["/bin/sh", "-c"]
+    command: ['ollama pull "$${MODEL_NAME}" && ollama pull all-minilm']
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+      MODEL_NAME: ${MODEL_NAME:-qwen2.5:7b}
+    depends_on:
+      ollama: {condition: service_healthy}
+  hindsight:
+    profiles: ["live"]
+    image: ${HINDSIGHT_IMAGE:-ghcr.io/vectorize-io/hindsight:latest-slim}
+    shm_size: 1gb
+    ports: ["127.0.0.1:${HINDSIGHT_HOST_PORT:-18888}:8888", "127.0.0.1:${HINDSIGHT_UI_HOST_PORT:-19999}:9999"]
+    environment:
+      HINDSIGHT_API_WORKER_ID: poc-worker
+      HINDSIGHT_API_LLM_PROVIDER: ollama
+      HINDSIGHT_API_LLM_BASE_URL: http://ollama:11434/v1
+      HINDSIGHT_API_LLM_MODEL: ${MODEL_NAME:-qwen2.5:7b}
+      HINDSIGHT_API_LLM_API_KEY: ollama
+      HINDSIGHT_API_LLM_STRICT_SCHEMA: "true"
+      HINDSIGHT_API_LLM_MAX_CONCURRENT: "1"
+      HINDSIGHT_API_RETAIN_MAX_COMPLETION_TOKENS: "4096"
+      HINDSIGHT_API_RETAIN_CHUNK_SIZE: "1500"
+      HINDSIGHT_API_EMBEDDINGS_PROVIDER: openai
+      HINDSIGHT_API_EMBEDDINGS_OPENAI_BASE_URL: http://ollama:11434/v1
+      HINDSIGHT_API_EMBEDDINGS_OPENAI_API_KEY: ollama
+      HINDSIGHT_API_EMBEDDINGS_OPENAI_MODEL: all-minilm
+      HINDSIGHT_API_EMBEDDINGS_OPENAI_BATCH_SIZE: "4"
+      HINDSIGHT_API_RERANKER_PROVIDER: rrf
+    volumes: ["hindsight-data:/home/hindsight/.pg0"]
+    depends_on:
+      model-init: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8888/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+      start_period: 60s
+volumes:
+  mlflow-data:
+  app-state:
+  ollama-data:
+  hindsight-data:

@@ -1,0 +1,636 @@
+{
+  "metadata": {
+    "dataset": "notmehul/memory-bench v1",
+    "dataset_url": "https://huggingface.co/datasets/notmehul/memory-bench",
+    "dataset_revision": "e6833b44e30b602c81f7087ebf682769fff297dc",
+    "license": "CC BY 4.0",
+    "org_id": "org-00001",
+    "run_id": "20261020T121934Z-5bfd678c",
+    "backend": "hindsight",
+    "retrieval_mode": "hybrid",
+    "mode": "gated",
+    "model": "qwen2.5:7b",
+    "answer_model": "ollama_native",
+    "model_max_tokens": 512,
+    "gate_model": "rules",
+    "selection": {
+      "available_probe_counts": {
+        "A1": 18,
+        "A2": 18,
+        "A4": 54,
+        "A7": 72
+      },
+      "valid_instances_available": {
+        "A1": 17,
+        "A2": 16,
+        "A4": 36,
+        "A7": 58
+      },
+      "selected_instances": {
+        "A1": 1,
+        "A2": 1,
+        "A4": 1,
+        "A7": 1
+      },
+      "rule": "For each archetype, selected 1 instances marked valid in the published g3-report, sorted by lowest published floor anchor, then earliest inject_after_event, then probe_id. Anchor status is a sampling hint only; no anchor score is reused."
+    },
+    "checksums": {
+      "org-00001/events.jsonl": "53c42b91b94c533c979489c25c893fda0d89eae01ba05b70cf5a3a7c24215c4b",
+      "org-00001/org.json": "4b88e22c8adf12f97157ce6026f2454fb524750c9364cd3c1eb99949bbcc3eca",
+      "org-00001-twin/events.jsonl": "3d44e8a7894aafcbc241b385b46afaff8ad35d2c292c603c7743a9c63115d43b",
+      "org-00001-twin/org.json": "39101efab76416ae190bdcd828c9996c4ff228f4d20a7a3736e33f11278055e9",
+      "org-00001/probes.jsonl": "b91dae78a67ef3d52178b6707c0a290401e6ba7cec86add3459186bbb5234fa9",
+      "org-00001/g3-report.json": "aec99a6aee4224ad6c5b7906c019dbfd218cde62bc70952b81aa0bfd2bf0a23a"
+    },
+    "caveat": "Diagnostic output only; alternate worker, no official paired scoring.",
+    "bank_mapping": "Shared org bank per stream variant; witness ACL tags and local source filtering enforce per-principal event delivery.",
+    "temporal_cutoff": "Each probe is evaluated at its inject_after_event timestamp on simulated 2026-01-01 UTC."
+  },
+  "cases": [
+    {
+      "probe_id": "P-0006-02",
+      "cluster_id": "P-0006",
+      "archetype": "A7",
+      "principal": "persona:lena",
+      "inject_after_event": "E-0013",
+      "task": "Write a short engineering-wide policy note explaining when a design doc becomes mandatory for a change that touches several services. Include the numeric cutoff in plain language and one quick example.",
+      "context_frame": {
+        "kind": "org_facing",
+        "ref": null
+      },
+      "targets": [
+        "F-0015"
+      ],
+      "must_not_use": [],
+      "sampling_anchor": {
+        "valid": true,
+        "floor": 0.0,
+        "ceiling": 1.0
+      },
+      "assertions": [
+        {
+          "id": "asrt-1",
+          "kind": "fact_applied",
+          "fact_id": "F-0015",
+          "checker": "semantic",
+          "criterion": "The policy note states a design doc becomes mandatory once a change touches three or more services.",
+          "weight": 1.0
+        }
+      ],
+      "counterfactual_assertions": [
+        {
+          "id": "casrt-1",
+          "kind": "fact_applied",
+          "fact_id": "F-0015",
+          "checker": "semantic",
+          "criterion": "The policy note states a design doc becomes mandatory once a change touches two or more services.",
+          "weight": 1.0
+        }
+      ],
+      "original": {
+        "output": "Design docs become mandatory for changes touching three or more services. This ensures clear communication and alignment across teams when multiple services are impacted. For example, a change affecting the authentication, authorization, and notification services would require a design document.",
+        "sources": [
+          {
+            "id": "org-00001-E-0009",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0009",
+            "text": "org/all-hands (all_hands; participants: persona:noa, persona:anouk, persona:celine, persona:otto, persona:kofi, persona:diego, persona:mei, persona:yuki)\nnoa: all-hands start with short ops cites then open floor\nanouk: board looks light — open floor after ritual notes\nceline: ack\notto: noted\nkofi: quiet\nnoa: Company customer copy uses plain wording and bypasses jargon\nnoa: Bug triage rotates under a weekly cadence among platform engineers\nanouk: Org might permit one approval when both reviewers sit on call\nnoa: Company on-call weeks earn a two-hundred-dollar stipend paid every cycle\nyuki: Company removes support chat transcripts after fourteen months as default\nnoa: Org bug triage runs each Monday under a published owner\ndiego: ok\nnoa: Company Slack messages in #general expect replies inside four business hours\nyuki: Expense reports must be filed inside five business days per charge\nnoa: Org standups stay capped at fifteen minutes with a written async option\nceline: Production-bound pull requests require twin approvals plus one rollback note\nmei: Platform bug triage might rotate every three weeks under short-staffing\nyuki: Sev-1 pages must escalate toward the engineering-director after thirty minutes\nmei: copy\nyuki: clear\nnoa: Company roadmaps undergo review on a weekly cadence alongside exec staff\nnoa: Design docs stay mandatory for changes touching three or more services\nnoa: Org briefly required triple production-merge approvals during the audit week\nkofi: Org bug triage might run twice weekly amid understaffing\nceline: keep the cites short for the floor\nmei: capturing those cites for the shared note\notto: misc leftovers stay async after this\ndiego: wiki paths go in after the call"
+          },
+          {
+            "id": "org-00001-E-0007",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0007",
+            "text": "chat:platform-eng (chat; participants: persona:diego, persona:yuki, persona:lena, persona:mei)\ndiego: who can cover morning review queue?\nyuki: I am free; PLA-208 still lists the open diffs\nlena: that matches what diego asked for\nmei: want me on the second pass?"
+          },
+          {
+            "id": "org-00001-E-0008",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0008",
+            "text": "chat:platform-eng (chat; participants: persona:mei, persona:yuki, persona:lena, persona:diego)\nmei: staging seed restart before soak?\nyuki: I can restart after the queue glance\nlena: include row counts in the thread\ndiego: counts going in the thread"
+          }
+        ],
+        "decisions": [
+          {
+            "id": "org-00001-E-0009",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: change, design, doc, engineering, mandatory, note, one, plain, service, short, when"
+          },
+          {
+            "id": "org-00001-E-0007",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: that"
+          },
+          {
+            "id": "org-00001-E-0008",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: include"
+          }
+        ]
+      },
+      "twin": {
+        "output": "Engineering-Wide Policy Note\n\nSubject: Mandatory Design Docs for Multi-Service Changes\n\nTo all platform engineers,\n\nA design document becomes mandatory for any change that touches two or more services. This threshold ensures clear communication and coordination across services, especially when changes can have broader impacts.\n\nExample: A change affecting both the billing and user management services would require a design document.\n\nSigned,\nLena, Platform Engineer",
+        "sources": [
+          {
+            "id": "org-00001-twin-E-0009",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0009",
+            "text": "org/all-hands (all_hands; participants: persona:noa, persona:anouk, persona:celine, persona:otto, persona:kofi, persona:diego, persona:mei, persona:yuki)\nnoa: welcome in — ritual cites first then open floor\nanouk: slate is thin; keep ritual notes brief\nceline: here\notto: listening\nkofi: ready\nnoa: Brand voice guidelines stay elective for internal-only company documents.\nnoa: Bug triage rotates each day among all platform engineers on staff.\nanouk: Org might permit one approval when both reviewers sit on call.\nnoa: Company on-call weeks receive compensatory leave instead of cash stipends.\nyuki: Company removes support chat transcripts after fourteen months as default.\nnoa: Org bug triage omits Mondays without a published owner.\ndiego: set\nnoa: Slack reply targets remain suspended entirely on each and every company holiday.\nyuki: Expense reports must get filed within five business days per charge.\nnoa: Org standups stay capped at thirty minutes with no async written option.\nceline: Production-bound pull requests need twin approvals plus a rollback note.\nmei: Platform bug triage might rotate every three weeks under short-staffing.\nyuki: Sev-1 pages must escalate toward the engineering-director after thirty minutes.\nmei: on\nyuki: present\nnoa: All roadmap reviews stay frozen until the next quarterly planning cycle.\nnoa: Design docs remain mandatory for changes touching two or more services.\nnoa: Org briefly demanded triple production-merge approvals during audit week.\nkofi: Org bug triage might run twice weekly amid understaffing.\nceline: want those cites compact before questions\nmei: dropping those into the shared pad\notto: parking leftovers for async\ndiego: wiki links after we wrap"
+          },
+          {
+            "id": "org-00001-twin-E-0007",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0007",
+            "text": "chat:platform-eng (chat; participants: persona:diego, persona:yuki, persona:lena, persona:mei)\ndiego: who can cover morning review queue?\nyuki: I am free; PLA-208 still lists the open diffs\nlena: that matches what diego asked for\nmei: want me on the second pass?"
+          },
+          {
+            "id": "org-00001-twin-E-0008",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0008",
+            "text": "chat:platform-eng (chat; participants: persona:mei, persona:yuki, persona:lena, persona:diego)\nmei: staging seed restart before soak?\nyuki: I can restart after the queue glance\nlena: include row counts in the thread\ndiego: counts going in the thread"
+          },
+          {
+            "id": "org-00001-twin-E-0005",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0005",
+            "text": "team:platform/standup (standup; participants: persona:diego, persona:lena, persona:mei, persona:yuki)\ndiego: standup round — queue, debt, carryover\nlena: mute cleanup nearly done; review before noon\nmei: can cover soak the first hour if needed\ndiego: Growth pager handoffs follow the checklist live during every shift change\nyuki: staging counts matched this morning\ndiego: Platform banks fifteen percent every sprint toward tech-debt paydown\ndiego: Platform briefly lifted story-point carryover limits amid January outage sprint\nlena: jotting those into the note\nmei: only hang-up is the review emoji\nyuki: stop at :15 rest async"
+          }
+        ],
+        "decisions": [
+          {
+            "id": "org-00001-twin-E-0009",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: change, design, doc, engineering, mandatory, note, one, service, short, when"
+          },
+          {
+            "id": "org-00001-twin-E-0007",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: that"
+          },
+          {
+            "id": "org-00001-twin-E-0008",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: include"
+          },
+          {
+            "id": "org-00001-twin-E-0005",
+            "keep": true,
+            "reason": "Hindsight recall; lexical overlap: change, note"
+          }
+        ]
+      }
+    },
+    {
+      "probe_id": "P-0011-03",
+      "cluster_id": "P-0011",
+      "archetype": "A2",
+      "principal": "persona:celine",
+      "inject_after_event": "E-0017",
+      "task": "Draft the growth team’s partner incident checklist. Include the deadline for the very first outbound note to the affected partner, and make the instruction explicit enough that whoever is covering comms can send it right away without extra approval.",
+      "context_frame": {
+        "kind": "team_internal",
+        "ref": "team:growth"
+      },
+      "targets": [
+        "F-0026"
+      ],
+      "must_not_use": [],
+      "sampling_anchor": {
+        "valid": true,
+        "floor": 0.0,
+        "ceiling": 1.0
+      },
+      "assertions": [
+        {
+          "id": "asrt-1",
+          "kind": "fact_applied",
+          "fact_id": "F-0026",
+          "checker": "semantic",
+          "criterion": "The checklist requires the first outbound partner note within thirty minutes.",
+          "weight": 1.0
+        }
+      ],
+      "counterfactual_assertions": [
+        {
+          "id": "casrt-1",
+          "kind": "fact_applied",
+          "fact_id": "F-0026",
+          "checker": "semantic",
+          "criterion": "The checklist allows the first outbound partner note to wait until the next business day.",
+          "weight": 1.0
+        }
+      ],
+      "original": {
+        "output": "Partner Incident Checklist\n\n- **First Outbound Note Deadline:** Thirty minutes from the incident discovery.\n\nThis checklist ensures that the growth team promptly acknowledges any partner-facing incidents, adhering to the SLA of exactly thirty minutes.",
+        "sources": [
+          {
+            "id": "org-00001-E-0013",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0013",
+            "text": "chat:growth-eng (chat; participants: persona:otto, persona:celine, persona:anouk)\notto: partner incident ack SLA while I have you\nceline: drafting the partner note this afternoon\nanouk: Partner-facing incidents must always be acknowledged inside thirty minutes exactly\nceline: thirty minutes flat noted\notto: I will put that on the partner checklist\nceline: thanks — wrapping the draft after lunch"
+          },
+          {
+            "id": "org-00001-E-0001",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0001",
+            "text": "team:growth/standup (standup; participants: persona:anouk, persona:celine, persona:otto, persona:kofi)\nanouk: standup — funnel, contracts, leftovers\nceline: invite polish almost done; need a skim later\notto: staging seed green since lunch on my side\nkofi: warehouse lag stayed quiet overnight\nceline: refund follow-up still parked from yesterday\notto: I can take the skim after this if needed\nanouk: Growth briefly paid trial on-call stipends of $150 weekly last spring\nanouk: Growth routes contracts carrying over three redlines toward legal first\nceline: useful before I ping counsel\nkofi: clear on my side\nceline: wrap at :15 chatter in channel"
+          },
+          {
+            "id": "org-00001-E-0012",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0012",
+            "text": "team:growth/planning (planning; participants: persona:celine)\nceline: planning slate — freezes, triage, access, notes\nceline: leftovers from last week's experiment board still on my mind\nceline: Platform assigns bug triage unto a weekly primary plus a named backup\nceline: Growth meeting notes must get filed into Notion before attendees leave\nceline: keep numbers first; skip ceremony\nceline: Platform pauses risky deploys once monthly error-budget crosses sixty percent\nceline: carryover stays thin unless someone blocks on review\nceline: Production access grants require a ticket and lapse past twelve hours\nceline: drop those four into the planning channel\nceline: thin cites only — parking the rest until Thursday"
+          },
+          {
+            "id": "org-00001-E-0009",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0009",
+            "text": "org/all-hands (all_hands; participants: persona:noa, persona:anouk, persona:celine, persona:otto, persona:kofi, persona:diego, persona:mei, persona:yuki)\nnoa: all-hands start with short ops cites then open floor\nanouk: board looks light — open floor after ritual notes\nceline: ack\notto: noted\nkofi: quiet\nnoa: Company customer copy uses plain wording and bypasses jargon\nnoa: Bug triage rotates under a weekly cadence among platform engineers\nanouk: Org might permit one approval when both reviewers sit on call\nnoa: Company on-call weeks earn a two-hundred-dollar stipend paid every cycle\nyuki: Company removes support chat transcripts after fourteen months as default\nnoa: Org bug triage runs each Monday under a published owner\ndiego: ok\nnoa: Company Slack messages in #general expect replies inside four business hours\nyuki: Expense reports must be filed inside five business days per charge\nnoa: Org standups stay capped at fifteen minutes with a written async option\nceline: Production-bound pull requests require twin approvals plus one rollback note\nmei: Platform bug triage might rotate every three weeks under short-staffing\nyuki: Sev-1 pages must escalate toward the engineering-director after thirty minutes\nmei: copy\nyuki: clear\nnoa: Company roadmaps undergo review on a weekly cadence alongside exec staff\nnoa: Design docs stay mandatory for changes touching three or more services\nnoa: Org briefly required triple production-merge approvals during the audit week\nkofi: Org bug triage might run twice weekly amid understaffing\nceline: keep the cites short for the floor\nmei: capturing those cites for the shared note\notto: misc leftovers stay async after this\ndiego: wiki paths go in after the call"
+          }
+        ],
+        "decisions": [
+          {
+            "id": "org-00001-E-0013",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: checklist, draft, growth, incident, note, partner, that"
+          },
+          {
+            "id": "org-00001-E-0001",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: can, first, growth, team"
+          },
+          {
+            "id": "org-00001-E-0012",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: , first, growth, note, team"
+          },
+          {
+            "id": "org-00001-E-0009",
+            "keep": true,
+            "reason": "Hindsight recall; lexical overlap: approval, note"
+          }
+        ]
+      },
+      "twin": {
+        "output": "Partner Incident Checklist\n\n1. **Initial Acknowledgment**: Send the first outbound note to the affected partner within 12 hours of the incident being identified. This note should acknowledge receipt of the issue and confirm the team is investigating.\n\n[org-00001-twin-E-0013]",
+        "sources": [
+          {
+            "id": "org-00001-twin-E-0013",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0013",
+            "text": "chat:growth-eng (chat; participants: persona:otto, persona:celine, persona:anouk)\notto: partner ack timing while you are free\nceline: finishing a partner note after lunch\nanouk: Partner-facing incidents may wait until the following business day for acknowledgment.\nceline: following-day window noted\notto: will tuck that into the partner checklist"
+          },
+          {
+            "id": "org-00001-twin-E-0009",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0009",
+            "text": "org/all-hands (all_hands; participants: persona:noa, persona:anouk, persona:celine, persona:otto, persona:kofi, persona:diego, persona:mei, persona:yuki)\nnoa: welcome in — ritual cites first then open floor\nanouk: slate is thin; keep ritual notes brief\nceline: here\notto: listening\nkofi: ready\nnoa: Brand voice guidelines stay elective for internal-only company documents.\nnoa: Bug triage rotates each day among all platform engineers on staff.\nanouk: Org might permit one approval when both reviewers sit on call.\nnoa: Company on-call weeks receive compensatory leave instead of cash stipends.\nyuki: Company removes support chat transcripts after fourteen months as default.\nnoa: Org bug triage omits Mondays without a published owner.\ndiego: set\nnoa: Slack reply targets remain suspended entirely on each and every company holiday.\nyuki: Expense reports must get filed within five business days per charge.\nnoa: Org standups stay capped at thirty minutes with no async written option.\nceline: Production-bound pull requests need twin approvals plus a rollback note.\nmei: Platform bug triage might rotate every three weeks under short-staffing.\nyuki: Sev-1 pages must escalate toward the engineering-director after thirty minutes.\nmei: on\nyuki: present\nnoa: All roadmap reviews stay frozen until the next quarterly planning cycle.\nnoa: Design docs remain mandatory for changes touching two or more services.\nnoa: Org briefly demanded triple production-merge approvals during audit week.\nkofi: Org bug triage might run twice weekly amid understaffing.\nceline: want those cites compact before questions\nmei: dropping those into the shared pad\notto: parking leftovers for async\ndiego: wiki links after we wrap"
+          },
+          {
+            "id": "org-00001-twin-E-0001",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0001",
+            "text": "team:growth/standup (standup; participants: persona:anouk, persona:celine, persona:otto, persona:kofi)\nanouk: standup — funnel, contracts, leftovers\nceline: invite polish almost done; need a skim later\notto: staging seed green since lunch on my side\nkofi: warehouse lag stayed quiet overnight\nceline: refund follow-up still parked from yesterday\notto: I can take the skim after this if needed\nanouk: Growth briefly paid trial on-call stipends of $150 weekly last spring\nanouk: Growth routes contracts carrying over three redlines toward legal first\nceline: useful before I ping counsel\nkofi: clear on my side\nceline: wrap at :15 chatter in channel"
+          }
+        ],
+        "decisions": [
+          {
+            "id": "org-00001-twin-E-0013",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: checklist, growth, incident, note, partner, that"
+          },
+          {
+            "id": "org-00001-twin-E-0009",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: approval, first, note, without"
+          },
+          {
+            "id": "org-00001-twin-E-0001",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: can, first, growth, team"
+          }
+        ]
+      }
+    },
+    {
+      "probe_id": "P-0028-01",
+      "cluster_id": "P-0028",
+      "archetype": "A1",
+      "principal": "persona:kofi",
+      "inject_after_event": "E-0057",
+      "task": "Draft a Growth-team maintenance checklist for runbooks. Make it usable in your next team meeting, with the recurring refresh cadence, who tracks the next due date, and what kicks off the update process.",
+      "context_frame": {
+        "kind": "team_internal",
+        "ref": "team:growth"
+      },
+      "targets": [
+        "F-0063"
+      ],
+      "must_not_use": [],
+      "sampling_anchor": {
+        "valid": true,
+        "floor": 0.0,
+        "ceiling": 1.0
+      },
+      "assertions": [
+        {
+          "id": "asrt-1",
+          "kind": "fact_applied",
+          "fact_id": "F-0063",
+          "checker": "semantic",
+          "criterion": "The checklist puts runbooks on a recurring 60-day review cycle rather than waiting for major incidents.",
+          "weight": 1.0
+        }
+      ],
+      "counterfactual_assertions": [
+        {
+          "id": "casrt-1",
+          "kind": "fact_applied",
+          "fact_id": "F-0063",
+          "checker": "semantic",
+          "criterion": "The checklist calls for formal runbook review only after major incidents occur.",
+          "weight": 1.0
+        }
+      ],
+      "original": {
+        "output": "Growth-team Maintenance Checklist for Runbooks\n\n**Review Cadence:** Every 60 days\n\n**Next Due Date:** [Insert Date Here]\n\n**Who Tracks Next Due Date:** Kofi\n\n**What Kicks Off the Update Process:** Anouk will initiate the review process by sending a reminder to the team 10 days before the due date.\n\n**Items to Review:**\n1. Ensure all runbooks are up-to-date and accurate.\n2. Verify that all runbooks include clear steps and procedures.\n3. Confirm that each runbook has a clear owner and a due date for any updates.\n4. Check that all runbooks are filed in the appropriate Notion space.\n5. Ensure that all runbooks are accessible and easy to understand for team members.\n\n**Notes:**\n- Keep the review process streamlined and focused on critical updates.\n- Any issues or updates should be noted and addressed promptly.",
+        "sources": [
+          {
+            "id": "org-00001-E-0023",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0023",
+            "text": "chat:growth-eng (chat; participants: persona:otto, persona:celine, persona:anouk, persona:kofi)\notto: design docs and retro action habits\nceline: leftovers from the billing experiment thread\nkofi: numbers first on this one\nanouk: Platform retro action items must carry an owner and due date inside forty-eight hours\nanouk: Growth requires design docs solely for experiments impacting any billing code\nceline: board still has the refund follow-up parked\nkofi: jotting both for the channel"
+          },
+          {
+            "id": "org-00001-E-0012",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0012",
+            "text": "team:growth/planning (planning; participants: persona:celine)\nceline: planning slate — freezes, triage, access, notes\nceline: leftovers from last week's experiment board still on my mind\nceline: Platform assigns bug triage unto a weekly primary plus a named backup\nceline: Growth meeting notes must get filed into Notion before attendees leave\nceline: keep numbers first; skip ceremony\nceline: Platform pauses risky deploys once monthly error-budget crosses sixty percent\nceline: carryover stays thin unless someone blocks on review\nceline: Production access grants require a ticket and lapse past twelve hours\nceline: drop those four into the planning channel\nceline: thin cites only — parking the rest until Thursday"
+          },
+          {
+            "id": "org-00001-E-0052",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0052",
+            "text": "team:growth/standup (standup; participants: persona:anouk, persona:celine, persona:otto)\nanouk: standup — runbooks, funnel, leftovers\nceline: invite funnel polish almost done; need a skim later\notto: staging seed green since lunch today\nanouk: Growth runbooks must get reviewed without fail each sixty days\nceline: useful for the runbook note\notto: any blockers besides the skim\nceline: clear on my side\notto: ack\nanouk: wrap at :15 chatter in channel"
+          },
+          {
+            "id": "org-00001-E-0009",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0009",
+            "text": "org/all-hands (all_hands; participants: persona:noa, persona:anouk, persona:celine, persona:otto, persona:kofi, persona:diego, persona:mei, persona:yuki)\nnoa: all-hands start with short ops cites then open floor\nanouk: board looks light — open floor after ritual notes\nceline: ack\notto: noted\nkofi: quiet\nnoa: Company customer copy uses plain wording and bypasses jargon\nnoa: Bug triage rotates under a weekly cadence among platform engineers\nanouk: Org might permit one approval when both reviewers sit on call\nnoa: Company on-call weeks earn a two-hundred-dollar stipend paid every cycle\nyuki: Company removes support chat transcripts after fourteen months as default\nnoa: Org bug triage runs each Monday under a published owner\ndiego: ok\nnoa: Company Slack messages in #general expect replies inside four business hours\nyuki: Expense reports must be filed inside five business days per charge\nnoa: Org standups stay capped at fifteen minutes with a written async option\nceline: Production-bound pull requests require twin approvals plus one rollback note\nmei: Platform bug triage might rotate every three weeks under short-staffing\nyuki: Sev-1 pages must escalate toward the engineering-director after thirty minutes\nmei: copy\nyuki: clear\nnoa: Company roadmaps undergo review on a weekly cadence alongside exec staff\nnoa: Design docs stay mandatory for changes touching three or more services\nnoa: Org briefly required triple production-merge approvals during the audit week\nkofi: Org bug triage might run twice weekly amid understaffing\nceline: keep the cites short for the floor\nmei: capturing those cites for the shared note\notto: misc leftovers stay async after this\ndiego: wiki paths go in after the call"
+          },
+          {
+            "id": "org-00001-E-0014",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0014",
+            "text": "chat:growth-eng (chat; participants: persona:anouk, persona:celine, persona:otto)\nanouk: retro tracking habit from platform\nceline: asking because the board felt scattered last cycle\nanouk: Platform briefly tracked retro items under shared-docs one quarter\notto: useful before we touch the template\nceline: I will skim the shared-doc pattern later"
+          }
+        ],
+        "decisions": [
+          {
+            "id": "org-00001-E-0023",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: date, due, growth"
+          },
+          {
+            "id": "org-00001-E-0012",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: growth, meeting, team"
+          },
+          {
+            "id": "org-00001-E-0052",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: growth, runbook, team"
+          },
+          {
+            "id": "org-00001-E-0009",
+            "keep": true,
+            "reason": "Hindsight recall; lexical overlap: cadence"
+          },
+          {
+            "id": "org-00001-E-0014",
+            "keep": true,
+            "reason": "Hindsight recall; lexical overlap: growth"
+          }
+        ]
+      },
+      "twin": {
+        "output": "Growth-team Maintenance Checklist for Runbooks\n\n1. **Review and Update Frequency**: Quarterly, with a kickoff meeting one week prior.\n2. **Lead**: Kofi (growth_engineer)\n3. **Next Due Date**: To be tracked in the team calendar, with the kickoff meeting scheduled for the first Monday of the quarter.\n4. **Kickoff Process**: \n   - Kofi schedules a kickoff meeting one week before the update cycle.\n   - The meeting includes a review of the previous quarter's runbooks and any outstanding issues.\n   - The team discusses and assigns responsibilities for updating the runbooks.\n5. **Content Updates**:\n   - Ensure all runbooks are up-to-date with the latest processes and procedures.\n   - Include any new learnings from recent experiments or incidents.\n6. **Standup Integration**:\n   - Runbooks should be reviewed during the standup meeting to ensure all team members are aware of any changes.\n   - Standup should be wrapped up by 15 minutes past the hour.\n7. **Access and Triage**:\n   - Follow Platform's bug triage process, with a weekly primary and a named backup.\n   - Production access grants require a ticket and lapse past twelve hours.\n8. **Incident Review**:\n   - Runbooks should be formally reviewed solely after major incidents happen.\n9. **Staging and Testing**:\n   - Ensure staging environments are green before major deployments.\n10. **Contract Management**:\n    - Route contracts carrying over three redlines toward legal first.\n\nThis checklist is designed to be used in the next team meeting and will be refreshed quarterly.",
+        "sources": [
+          {
+            "id": "org-00001-twin-E-0012",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0012",
+            "text": "team:growth/planning (planning; participants: persona:celine)\nceline: planning slate — freezes, triage, access, notes\nceline: leftovers from last week's experiment board still on my mind\nceline: Platform assigns bug triage unto a weekly primary plus a named backup\nceline: Growth meeting notes must get filed into Notion before attendees leave\nceline: keep numbers first; skip ceremony\nceline: Platform pauses risky deploys once monthly error-budget crosses sixty percent\nceline: carryover stays thin unless someone blocks on review\nceline: Production access grants require a ticket and lapse past twelve hours\nceline: drop those four into the planning channel\nceline: thin cites only — parking the rest until Thursday"
+          },
+          {
+            "id": "org-00001-twin-E-0052",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0052",
+            "text": "team:growth/standup (standup; participants: persona:anouk, persona:celine, persona:otto)\nanouk: standup — runbooks funnel leftovers\nceline: invite funnel polish almost done; need a skim later\notto: staging seed green since lunch today\nanouk: Growth runbooks need formal review solely after major incidents happen.\nceline: useful for the runbook note\notto: any blockers besides the skim\nceline: clear on my side\nanouk: wrap at :15 chatter in channel"
+          },
+          {
+            "id": "org-00001-twin-E-0001",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0001",
+            "text": "team:growth/standup (standup; participants: persona:anouk, persona:celine, persona:otto, persona:kofi)\nanouk: standup — funnel, contracts, leftovers\nceline: invite polish almost done; need a skim later\notto: staging seed green since lunch on my side\nkofi: warehouse lag stayed quiet overnight\nceline: refund follow-up still parked from yesterday\notto: I can take the skim after this if needed\nanouk: Growth briefly paid trial on-call stipends of $150 weekly last spring\nanouk: Growth routes contracts carrying over three redlines toward legal first\nceline: useful before I ping counsel\nkofi: clear on my side\nceline: wrap at :15 chatter in channel"
+          },
+          {
+            "id": "org-00001-twin-E-0014",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0014",
+            "text": "chat:growth-eng (chat; participants: persona:anouk, persona:celine, persona:otto)\nanouk: retro tracking habit from platform\nceline: asking because the board felt scattered last cycle\nanouk: Platform briefly tracked retro items under shared-docs one quarter\notto: useful before we touch the template\nceline: I will skim the shared-doc pattern later"
+          }
+        ],
+        "decisions": [
+          {
+            "id": "org-00001-twin-E-0012",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: growth, meeting, team"
+          },
+          {
+            "id": "org-00001-twin-E-0052",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: growth, runbook, team"
+          },
+          {
+            "id": "org-00001-twin-E-0001",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: growth, team"
+          },
+          {
+            "id": "org-00001-twin-E-0014",
+            "keep": true,
+            "reason": "Hindsight recall; lexical overlap: growth"
+          }
+        ]
+      }
+    },
+    {
+      "probe_id": "P-0041-03",
+      "cluster_id": "P-0041",
+      "archetype": "A4",
+      "principal": "persona:mei",
+      "inject_after_event": "E-0069",
+      "task": "Create a personal reminder card for how you wrap up meetings. Put the note-sharing turnaround at the top so it is easy to follow when your calendar is packed.",
+      "context_frame": {
+        "kind": "personal",
+        "ref": "persona:mei"
+      },
+      "targets": [
+        "F-0094",
+        "F-0095",
+        "F-0096"
+      ],
+      "must_not_use": [],
+      "sampling_anchor": {
+        "valid": true,
+        "floor": 0.0,
+        "ceiling": 1.0
+      },
+      "assertions": [
+        {
+          "id": "asrt-1",
+          "kind": "scope_correct",
+          "fact_id": "F-0096",
+          "checker": "semantic",
+          "criterion": "The reminder card places posting meeting notes within thirty minutes of leaving at the top of the routine.",
+          "weight": 1.0
+        }
+      ],
+      "counterfactual_assertions": [
+        {
+          "id": "casrt-1",
+          "kind": "scope_correct",
+          "fact_id": "F-0096",
+          "checker": "semantic",
+          "criterion": "The reminder card places posting meeting notes the next morning at the top of Mei's wrap-up routine.",
+          "weight": 1.0
+        }
+      ],
+      "original": {
+        "output": "Personal Reminder Card for Wrapping Up Meetings\n\n1. Cite related tickets before the meeting closes.\n2. Keep the note-sharing turnaround under 30 minutes after departure.\n3. Use numerals instead of spelled-out numbers.\n4. Post meeting notes inside 30 minutes of leaving the meeting.\n5. Keep the summary numbers-first and skip ceremony.\n6. Dump both notes into the planning channel.\n7. Partner note polish can wait until afternoon.\n8. Queue looks quiet on my side, so no urgent follow-ups needed.\n9. Staging counts matched this morning, no further action required.\n10. Rest stays light until Thursday.\n\nNote: This card is tailored for personal use and aligns with the practices of the platform team.",
+        "sources": [
+          {
+            "id": "org-00001-E-0067",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0067",
+            "text": "team:platform/planning (planning; participants: persona:diego, persona:lena, persona:mei, persona:yuki)\ndiego: planning slate — roadmap cadence leftovers\nlena: keep ceremony out; numbers first\nmei: was still chewing on last week's leftovers\nyuki: board is thin this round\nlena: queue looks quiet on my side\ndiego: Platform roadmap reviews occur every two weeks during team planning\nmei: staging counts matched this morning\nyuki: gallery B remote still on the table\nlena: I can own the mute note follow-up\nmei: partner note polish can wait until afternoon\nyuki: thin follow-up works for me\nlena: ack\nmei: dumping that cite into the planning channel\nyuki: rest stays light until Thursday"
+          },
+          {
+            "id": "org-00001-E-0050",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0050",
+            "text": "dm:kofi-mei (dm; participants: persona:kofi, persona:mei)\nkofi: free for a five-minute copy glance\nmei: after lunch works if the flake stays quiet\nkofi: drop the link when you open it\nmei: link in thread after lunch"
+          },
+          {
+            "id": "org-00001-E-0016",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0016",
+            "text": "team:platform/planning (planning; participants: persona:diego, persona:lena, persona:mei, persona:yuki)\ndiego: planning pass — notes, costs, leftover tickets\nlena: keep it numbers-first; skip ceremony\nmei: board looks thin this cycle\nyuki: carryover stays light unless someone blocks\nlena: I can take the mute cleanup follow-up after lunch\nmei: staging seed note still needs a one-liner\nyuki: Yuki prefers updating infra cost models the day pricing sheets release\ndiego: gallery B remote is still on the table from yesterday\nlena: I will leave a thin soak note after the window opens\ndiego: Platform meeting notes must cite related tickets before the meeting closes\nmei: partner note polish can wait until afternoon\nyuki: thin cites only after this\nlena: dumping both into the planning channel\nmei: rest stays light until Thursday"
+          },
+          {
+            "id": "org-00001-E-0031",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0031",
+            "text": "dm:kofi-mei (dm; participants: persona:kofi, persona:mei)\nkofi: sentence style and notes timing habits\nmei: asking because the partner note felt wordy\nmei: Mei prefers posting meeting notes inside thirty minutes of departure\nkofi: keep it short then\nmei: Otto prefers short sentences and numerals instead of spelled-out numbers\nmei: I can tighten the draft before lunch\nkofi: numerals noted — I will match that"
+          },
+          {
+            "id": "org-00001-E-0009",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001/events.jsonl#E-0009",
+            "text": "org/all-hands (all_hands; participants: persona:noa, persona:anouk, persona:celine, persona:otto, persona:kofi, persona:diego, persona:mei, persona:yuki)\nnoa: all-hands start with short ops cites then open floor\nanouk: board looks light — open floor after ritual notes\nceline: ack\notto: noted\nkofi: quiet\nnoa: Company customer copy uses plain wording and bypasses jargon\nnoa: Bug triage rotates under a weekly cadence among platform engineers\nanouk: Org might permit one approval when both reviewers sit on call\nnoa: Company on-call weeks earn a two-hundred-dollar stipend paid every cycle\nyuki: Company removes support chat transcripts after fourteen months as default\nnoa: Org bug triage runs each Monday under a published owner\ndiego: ok\nnoa: Company Slack messages in #general expect replies inside four business hours\nyuki: Expense reports must be filed inside five business days per charge\nnoa: Org standups stay capped at fifteen minutes with a written async option\nceline: Production-bound pull requests require twin approvals plus one rollback note\nmei: Platform bug triage might rotate every three weeks under short-staffing\nyuki: Sev-1 pages must escalate toward the engineering-director after thirty minutes\nmei: copy\nyuki: clear\nnoa: Company roadmaps undergo review on a weekly cadence alongside exec staff\nnoa: Design docs stay mandatory for changes touching three or more services\nnoa: Org briefly required triple production-merge approvals during the audit week\nkofi: Org bug triage might run twice weekly amid understaffing\nceline: keep the cites short for the floor\nmei: capturing those cites for the shared note\notto: misc leftovers stay async after this\ndiego: wiki paths go in after the call"
+          }
+        ],
+        "decisions": [
+          {
+            "id": "org-00001-E-0067",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: follow, note, up"
+          },
+          {
+            "id": "org-00001-E-0050",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: when, you"
+          },
+          {
+            "id": "org-00001-E-0016",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: follow, meeting, note, up"
+          },
+          {
+            "id": "org-00001-E-0031",
+            "keep": true,
+            "reason": "Hindsight recall; lexical overlap: meeting, note"
+          },
+          {
+            "id": "org-00001-E-0009",
+            "keep": true,
+            "reason": "Hindsight recall; lexical overlap: note, when"
+          }
+        ]
+      },
+      "twin": {
+        "output": "**Personal Reminder Card for Wrapping Up Meetings**\n\n1. **Note-Sharing Turnaround**: File meeting notes the following morning after leaving.\n2. **Decision and Owner Omission**: Do not include decisions, owners, or due dates in meeting notes.\n3. **Staging Counts**: Check staging counts in the morning.\n4. **Partner Note Polish**: Polish partner notes in the afternoon.\n5. **Board and Queue Status**: Board looks thin; queue is quiet on my side.\n6. **Mute Note Follow-Up**: Finish mute cleanup follow-up after lunch.\n7. **Staging Seed**: Add a one-liner for the staging seed.\n8. **Infra Cost Models**: Update infra cost models the day pricing sheets release.\n9. **Gallery Remote**: Ensure gallery remote is set up.\n10. **Link Timing**: Withhold ticket links until the next team standup.\n11. **Cite Timing**: Dump both notes and cites into the planning channel once they are ready.",
+        "sources": [
+          {
+            "id": "org-00001-twin-E-0067",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0067",
+            "text": "team:platform/planning (planning; participants: persona:diego, persona:lena, persona:mei, persona:yuki)\ndiego: planning slate — roadmap cadence leftovers\nlena: keep ceremony out; numbers first\nmei: still chewing on last week's leftovers\nyuki: board is thin this round\nlena: queue looks quiet on my side\ndiego: Platform roadmap reviews occur once a month during team planning.\nmei: staging counts matched this morning\nyuki: gallery remote still on the table\nlena: I can own the mute note follow-up\nmei: partner note polish can wait until afternoon\nyuki: thin follow-up works for me\nlena: ack\nmei: dumping that cite into the planning channel\nyuki: rest stays light until Thursday"
+          },
+          {
+            "id": "org-00001-twin-E-0050",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0050",
+            "text": "dm:kofi-mei (dm; participants: persona:kofi, persona:mei)\nkofi: free for a five-minute copy glance\nmei: after lunch works if the flake stays quiet\nkofi: drop the link when you open it\nmei: link in thread after lunch"
+          },
+          {
+            "id": "org-00001-twin-E-0016",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0016",
+            "text": "team:platform/planning (planning; participants: persona:diego, persona:lena, persona:mei, persona:yuki)\ndiego: planning pass — notes costs leftover tickets\nlena: keep ceremony low; numbers first\nmei: board looks thin this cycle\nyuki: carryover stays light unless someone blocks\nlena: I can finish the mute cleanup follow-up after lunch\nmei: staging seed still needs a one-liner\nyuki: Yuki prefers updating infra cost models the day pricing sheets release.\ndiego: gallery remote is still floating from yesterday\ndiego: Platform meeting notes withhold ticket links until the next team standup.\nlena: will leave a thin soak note once the window opens\nmei: partner polish can wait until afternoon\nyuki: thin cites only after this\nlena: dumping both into the planning channel"
+          },
+          {
+            "id": "org-00001-twin-E-0031",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0031",
+            "text": "dm:kofi-mei (dm; participants: persona:kofi, persona:mei)\nkofi: sentence style and notes timing\nmei: Mei prefers filing meeting notes the following morning after leaving.\nmei: partner draft felt wordy last round\nmei: Otto prefers longer sentences and spelled-out numbers rather than numerals.\nkofi: spelled-out numbers it is"
+          },
+          {
+            "id": "org-00001-twin-E-0060",
+            "scope": "org",
+            "source": "https://huggingface.co/datasets/notmehul/memory-bench/tree/main/data/org-00001-twin/events.jsonl#E-0060",
+            "text": "org/all-hands (all_hands; participants: persona:noa, persona:anouk, persona:celine, persona:otto, persona:kofi, persona:diego, persona:lena, persona:yuki)\nnoa: all-hands opening — brief ops notes then floor\nanouk: board is light — ritual cites then open questions\nceline: ack\notto: noted\nkofi: quiet\nanouk: Finance released Q3 pricing sheets two days before planning closed.\ndiego: clear\nlena: ok\nanouk: Company customer copy might stay casual while brand lead's out.\nnoa: Bug triage rotates monthly with one fixed assignee, lacking backup.\nnoa: Company meeting notes omit decisions, owners, and due dates completely.\nlena: Company meeting-notes could omit due-dates while scribing alone.\nnoa: Company travel must get booked via the Concur portal.\nnoa: Org bug triage occurs each Friday with a published owner.\nyuki: copy\nnoa: Org standups span twenty minutes with complete attendee status updates.\nnoa: Code reviews may ship with one single approval amid freeze windows.\nnoa: Sprint carryover carries no cap on unfinished tickets per squad.\nceline: keep ritual cites short before questions\nyuki: capturing the wiki path and stipend note\nceline: I will paste the wiki cites after\ndiego: leftovers from planning stay in the channel\nlena: thin wrap only once the cites land"
+          }
+        ],
+        "decisions": [
+          {
+            "id": "org-00001-twin-E-0067",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: follow, note, up"
+          },
+          {
+            "id": "org-00001-twin-E-0050",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: when, you"
+          },
+          {
+            "id": "org-00001-twin-E-0016",
+            "keep": true,
+            "reason": "source-line match; lexical overlap: follow, meeting, note, up"
+          },
+          {
+            "id": "org-00001-twin-E-0031",
+            "keep": true,
+            "reason": "Hindsight recall; lexical overlap: meeting, note"
+          },
+          {
+            "id": "org-00001-twin-E-0060",
+            "keep": true,
+            "reason": "Hindsight recall; lexical overlap: meeting, note, wrap"
+          }
+        ]
+      }
+    }
+  ]
+}

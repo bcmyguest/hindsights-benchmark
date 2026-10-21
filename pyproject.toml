@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hindsight-three-scope-poc"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "langgraph==1.2.16", "langgraph-checkpoint-sqlite==3.1.2",
+  "langchain-openai==1.7.2", "duckdb==1.5.6", "httpx==0.28.1",
+  "PyYAML==6.0.3", "mlflow==3.17.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1"]
+
+[project.scripts]
+memory-poc = "memory_poc.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["memory_poc*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

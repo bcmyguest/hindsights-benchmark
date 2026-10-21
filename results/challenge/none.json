@@ -1,0 +1,120 @@
+[
+  {
+    "case": "paraphrase-personal",
+    "query": "How does Alice like her incident updates presented?",
+    "expected_sources": [
+      "alice-format"
+    ],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 36.06104012578726
+  },
+  {
+    "case": "paraphrase-org",
+    "query": "What details must be scrubbed before a household account is shared?",
+    "expected_sources": [
+      "org-data-practice"
+    ],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 21.22848085127771
+  },
+  {
+    "case": "paraphrase-event",
+    "query": "How many evacuees were at Riverside's refuge after the audit?",
+    "expected_sources": [
+      "riverside-v3"
+    ],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 19.85282078385353
+  },
+  {
+    "case": "missing-event-context",
+    "query": "How many people are at Riverside shelter right now?",
+    "expected_sources": [],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 22.244013845920563
+  },
+  {
+    "case": "unsupported-event-fact",
+    "query": "What is the Riverside shelter's generator fuel level?",
+    "expected_sources": [],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 21.712202113121748
+  },
+  {
+    "case": "unsupported-org-policy",
+    "query": "What is the organization's vaccination policy?",
+    "expected_sources": [],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 22.12755405344069
+  },
+  {
+    "case": "cross-event-secret",
+    "query": "What is the private Hilltown marker?",
+    "expected_sources": [],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 19.200403010472655
+  },
+  {
+    "case": "other-user-preference",
+    "query": "What briefing length does Bob prefer?",
+    "expected_sources": [],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 19.652053015306592
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "run_id": "20261020T121934Z-5bfd678c",
+  "reviewer": "Assistant qualitative inspection; not the published blind judge",
+  "note": "Hybrid retrieval opened all eight target passages with per-probe source-time cutoffs, using saved Hindsight banks. Five generated answers met the visible criterion. This is a small diagnostic, not an official benchmark score or a fresh-bank protocol run.",
+  "verdicts": [
+    {
+      "probe_id": "P-0006-02",
+      "original": {"status": "met", "reason": "States the design-doc cutoff as three or more services."},
+      "twin": {"status": "met", "reason": "States the changed cutoff as two or more services."}
+    },
+    {
+      "probe_id": "P-0011-03",
+      "original": {"status": "met", "reason": "Requires the first outbound note within thirty minutes of incident discovery."},
+      "twin": {"status": "missed", "reason": "Invents a 12-hour deadline instead of allowing the following business day."}
+    },
+    {
+      "probe_id": "P-0028-01",
+      "original": {"status": "met", "reason": "Gives the required recurring 60-day runbook review cycle."},
+      "twin": {"status": "missed", "reason": "Adds a quarterly cadence, contradicting the source's review-only-after-major-incidents rule."}
+    },
+    {
+      "probe_id": "P-0041-03",
+      "original": {"status": "missed", "reason": "States the 30-minute note deadline, but puts another action above it on the reminder card."},
+      "twin": {"status": "met", "reason": "Puts following-morning note sharing at the top of Mei's reminder card."}
+    }
+  ]
+}

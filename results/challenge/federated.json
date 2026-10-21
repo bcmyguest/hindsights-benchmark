@@ -1,0 +1,316 @@
+[
+  {
+    "case": "paraphrase-personal",
+    "query": "How does Alice like her incident updates presented?",
+    "expected_sources": [
+      "alice-format"
+    ],
+    "actual_sources": [
+      "alice-format",
+      "org-briefing",
+      "org-data-practice"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format\n[org-briefing] # Briefing playbook\n\nFor a situation briefing, verify shelter occupancy and capacity against the cited report revision. Publish a briefing every 4 hours while the incident is active. State the observation time beside every figure. See [data practice](data-practice.md) for case narrative handling.\n  Source: data/knowledge/briefing.md#passage\n[org-data-practice] # Shared case narratives\n\nRemove names, contact details, exact addresses, and direct identifiers before a case narrative enters a shared bank. Review indirect identifiers before publication. A user report remains attributed and unverified until corroborated.\n  Source: data/knowledge/data-practice.md#passage",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: alice"
+      },
+      {
+        "id": "org-briefing",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "org-data-practice",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.3333333333333333,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 44.25916797481477
+  },
+  {
+    "case": "paraphrase-org",
+    "query": "What details must be scrubbed before a household account is shared?",
+    "expected_sources": [
+      "org-data-practice"
+    ],
+    "actual_sources": [
+      "alice-format",
+      "org-briefing",
+      "org-data-practice"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format\n[org-data-practice] # Shared case narratives\n\nRemove names, contact details, exact addresses, and direct identifiers before a case narrative enters a shared bank. Review indirect identifiers before publication. A user report remains attributed and unverified until corroborated.\n  Source: data/knowledge/data-practice.md#passage\n[org-briefing] # Briefing playbook\n\nFor a situation briefing, verify shelter occupancy and capacity against the cited report revision. Publish a briefing every 4 hours while the incident is active. State the observation time beside every figure. See [data practice](data-practice.md) for case narrative handling.\n  Source: data/knowledge/briefing.md#passage",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "org-data-practice",
+        "keep": true,
+        "reason": "lexical overlap: must, shared"
+      },
+      {
+        "id": "org-briefing",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.3333333333333333,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 42.41670807823539
+  },
+  {
+    "case": "paraphrase-event",
+    "query": "How many evacuees were at Riverside's refuge after the audit?",
+    "expected_sources": [
+      "riverside-v3"
+    ],
+    "actual_sources": [
+      "alice-format",
+      "org-briefing",
+      "org-data-practice",
+      "riverside-case",
+      "riverside-v3"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format\n[org-briefing] # Briefing playbook\n\nFor a situation briefing, verify shelter occupancy and capacity against the cited report revision. Publish a briefing every 4 hours while the incident is active. State the observation time beside every figure. See [data practice](data-practice.md) for case narrative handling.\n  Source: data/knowledge/briefing.md#passage\n[org-data-practice] # Shared case narratives\n\nRemove names, contact details, exact addresses, and direct identifiers before a case narrative enters a shared bank. Review indirect identifiers before publication. A user report remains attributed and unverified until corroborated.\n  Source: data/knowledge/data-practice.md#passage\n[riverside-case] A synthetic household requested an accessible shelter transfer. Transport was arranged. The request was reported by a case worker and has no direct personal identifiers.\n  Source: data/sources/case-riverside.md#narrative\n[riverside-v3] Correction issued the following day: Riverside shelter occupancy at 14:00 UTC was 16 people, not the previously reported 18. Capacity remained 30 places. The east road was open.\n  Source: data/sources/sitrep-riverside-correction.md#shelter",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "org-briefing",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "org-data-practice",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "riverside-case",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "riverside-v3",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.2,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 57.412934955209494
+  },
+  {
+    "case": "missing-event-context",
+    "query": "How many people are at Riverside shelter right now?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format",
+      "org-briefing",
+      "org-data-practice"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format\n[org-briefing] # Briefing playbook\n\nFor a situation briefing, verify shelter occupancy and capacity against the cited report revision. Publish a briefing every 4 hours while the incident is active. State the observation time beside every figure. See [data practice](data-practice.md) for case narrative handling.\n  Source: data/knowledge/briefing.md#passage\n[org-data-practice] # Shared case narratives\n\nRemove names, contact details, exact addresses, and direct identifiers before a case narrative enters a shared bank. Review indirect identifiers before publication. A user report remains attributed and unverified until corroborated.\n  Source: data/knowledge/data-practice.md#passage",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "org-briefing",
+        "keep": true,
+        "reason": "lexical overlap: shelter"
+      },
+      {
+        "id": "org-data-practice",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 45.3460740391165
+  },
+  {
+    "case": "unsupported-event-fact",
+    "query": "What is the Riverside shelter's generator fuel level?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format",
+      "org-briefing",
+      "org-data-practice",
+      "riverside-case",
+      "riverside-v3"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format\n[org-briefing] # Briefing playbook\n\nFor a situation briefing, verify shelter occupancy and capacity against the cited report revision. Publish a briefing every 4 hours while the incident is active. State the observation time beside every figure. See [data practice](data-practice.md) for case narrative handling.\n  Source: data/knowledge/briefing.md#passage\n[org-data-practice] # Shared case narratives\n\nRemove names, contact details, exact addresses, and direct identifiers before a case narrative enters a shared bank. Review indirect identifiers before publication. A user report remains attributed and unverified until corroborated.\n  Source: data/knowledge/data-practice.md#passage\n[riverside-case] A synthetic household requested an accessible shelter transfer. Transport was arranged. The request was reported by a case worker and has no direct personal identifiers.\n  Source: data/sources/case-riverside.md#narrative\n[riverside-v3] Correction issued the following day: Riverside shelter occupancy at 14:00 UTC was 16 people, not the previously reported 18. Capacity remained 30 places. The east road was open.\n  Source: data/sources/sitrep-riverside-correction.md#shelter",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "org-briefing",
+        "keep": true,
+        "reason": "lexical overlap: shelter"
+      },
+      {
+        "id": "org-data-practice",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "riverside-case",
+        "keep": true,
+        "reason": "lexical overlap: shelter"
+      },
+      {
+        "id": "riverside-v3",
+        "keep": true,
+        "reason": "lexical overlap: shelter"
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 48.77096298150718
+  },
+  {
+    "case": "unsupported-org-policy",
+    "query": "What is the organization's vaccination policy?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format",
+      "org-briefing",
+      "org-data-practice"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format\n[org-briefing] # Briefing playbook\n\nFor a situation briefing, verify shelter occupancy and capacity against the cited report revision. Publish a briefing every 4 hours while the incident is active. State the observation time beside every figure. See [data practice](data-practice.md) for case narrative handling.\n  Source: data/knowledge/briefing.md#passage\n[org-data-practice] # Shared case narratives\n\nRemove names, contact details, exact addresses, and direct identifiers before a case narrative enters a shared bank. Review indirect identifiers before publication. A user report remains attributed and unverified until corroborated.\n  Source: data/knowledge/data-practice.md#passage",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "org-briefing",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "org-data-practice",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 35.84595606662333
+  },
+  {
+    "case": "cross-event-secret",
+    "query": "What is the private Hilltown marker?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format",
+      "org-briefing",
+      "org-data-practice",
+      "riverside-case",
+      "riverside-v3"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format\n[org-briefing] # Briefing playbook\n\nFor a situation briefing, verify shelter occupancy and capacity against the cited report revision. Publish a briefing every 4 hours while the incident is active. State the observation time beside every figure. See [data practice](data-practice.md) for case narrative handling.\n  Source: data/knowledge/briefing.md#passage\n[org-data-practice] # Shared case narratives\n\nRemove names, contact details, exact addresses, and direct identifiers before a case narrative enters a shared bank. Review indirect identifiers before publication. A user report remains attributed and unverified until corroborated.\n  Source: data/knowledge/data-practice.md#passage\n[riverside-case] A synthetic household requested an accessible shelter transfer. Transport was arranged. The request was reported by a case worker and has no direct personal identifiers.\n  Source: data/sources/case-riverside.md#narrative\n[riverside-v3] Correction issued the following day: Riverside shelter occupancy at 14:00 UTC was 16 people, not the previously reported 18. Capacity remained 30 places. The east road was open.\n  Source: data/sources/sitrep-riverside-correction.md#shelter",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "org-briefing",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "org-data-practice",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "riverside-case",
+        "keep": true,
+        "reason": "lexical overlap: "
+      },
+      {
+        "id": "riverside-v3",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 38.51511096581817
+  },
+  {
+    "case": "other-user-preference",
+    "query": "What briefing length does Bob prefer?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format",
+      "org-briefing",
+      "org-data-practice"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format\n[org-briefing] # Briefing playbook\n\nFor a situation briefing, verify shelter occupancy and capacity against the cited report revision. Publish a briefing every 4 hours while the incident is active. State the observation time beside every figure. See [data practice](data-practice.md) for case narrative handling.\n  Source: data/knowledge/briefing.md#passage\n[org-data-practice] # Shared case narratives\n\nRemove names, contact details, exact addresses, and direct identifiers before a case narrative enters a shared bank. Review indirect identifiers before publication. A user report remains attributed and unverified until corroborated.\n  Source: data/knowledge/data-practice.md#passage",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: briefing, prefer"
+      },
+      {
+        "id": "org-briefing",
+        "keep": true,
+        "reason": "lexical overlap: briefing"
+      },
+      {
+        "id": "org-data-practice",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 34.265480004251
+  }
+]

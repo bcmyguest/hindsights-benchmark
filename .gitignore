@@ -1,0 +1,11 @@
+.env
+.venv/
+.state/
+*.duckdb*
+*.sqlite*
+mlflow.db*
+mlruns/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+results/**/state/

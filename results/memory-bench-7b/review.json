@@ -1,0 +1,27 @@
+{
+  "run_id": "20261020T121934Z-5bfd678c",
+  "reviewer": "Assistant qualitative inspection; not the published blind judge",
+  "note": "This 7B run reused Hindsight banks populated with the earlier 1.5B model. Only answer generation changed in this comparison; the missing target passages are retrieval failures in those saved banks.",
+  "verdicts": [
+    {
+      "probe_id": "P-0006-02",
+      "original": {"status": "met", "reason": "States that a design document is mandatory for changes touching three or more services."},
+      "twin": {"status": "missed", "reason": "Says more than three services; the twin criterion is two or more. Target E-0009 was not opened."}
+    },
+    {
+      "probe_id": "P-0011-03",
+      "original": {"status": "met", "reason": "Requires the first outbound partner acknowledgment within 30 minutes of awareness."},
+      "twin": {"status": "missed", "reason": "Invents 24-hour and 48-hour deadlines instead of the following business day, despite opening E-0013."}
+    },
+    {
+      "probe_id": "P-0028-01",
+      "original": {"status": "missed", "reason": "Omits the 60-day runbook review cycle; target E-0052 was not opened."},
+      "twin": {"status": "missed", "reason": "Says quarterly review after major incidents, adding a recurring cadence that E-0052 does not support."}
+    },
+    {
+      "probe_id": "P-0041-03",
+      "original": {"status": "met", "reason": "Puts posting meeting notes within 30 minutes of departure at the top."},
+      "twin": {"status": "met", "reason": "Puts following-morning meeting-note timing at the top of Mei's reminder card."}
+    }
+  ]
+}

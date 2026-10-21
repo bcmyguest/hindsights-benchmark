@@ -1,0 +1,28 @@
+{
+  "run_id": "20261020T121934Z-5bfd678c",
+  "metric": "source_coverage",
+  "reviewer": "Target event IDs checked against opened passages; not answer scoring",
+  "note": "Hybrid recall combines Hindsight results with authorized, synchronized source-line ranking. This run reused an existing Hindsight bank, while enforcing each probe's simulated event-time cutoff on opened sources. It is a retrieval diagnostic, not a clean fresh-bank benchmark score.",
+  "verdicts": [
+    {
+      "probe_id": "P-0006-02",
+      "original": {"status": "met", "reason": "Opened E-0009 with the three-service design-doc cutoff."},
+      "twin": {"status": "met", "reason": "Opened twin E-0009 with the two-service cutoff."}
+    },
+    {
+      "probe_id": "P-0011-03",
+      "original": {"status": "met", "reason": "Opened E-0013 with the 30-minute partner deadline."},
+      "twin": {"status": "met", "reason": "Opened twin E-0013 with the following-business-day deadline."}
+    },
+    {
+      "probe_id": "P-0028-01",
+      "original": {"status": "met", "reason": "Opened E-0052 with the 60-day runbook review cycle."},
+      "twin": {"status": "met", "reason": "Opened twin E-0052 with review only after major incidents."}
+    },
+    {
+      "probe_id": "P-0041-03",
+      "original": {"status": "met", "reason": "Opened E-0031 with Mei's 30-minute meeting-note turnaround."},
+      "twin": {"status": "met", "reason": "Opened twin E-0031 with the following-morning turnaround."}
+    }
+  ]
+}

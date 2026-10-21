@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hindsight memory POC — results</title>
+<style>
+  :root { color-scheme: light; font-family: system-ui, sans-serif; background: #f4f6f8; color: #17202a; }
+  body { max-width: 1060px; margin: 0 auto; padding: 48px 24px 80px; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -.045em; margin: 0 0 12px; }
+  h2 { margin: 40px 0 16px; }
+  p { line-height: 1.55; max-width: 70ch; }
+  a { color: #075b8a; }
+  .eyebrow { color: #506178; font-weight: 700; text-transform: uppercase; letter-spacing: .11em; font-size: .8rem; }
+  .lead { font-size: 1.15rem; color: #39495a; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+  .card { background: white; border: 1px solid #dbe2e9; border-radius: 14px; padding: 24px; box-shadow: 0 3px 12px #1425360a; }
+  .card h3 { margin: 8px 0; font-size: 1.15rem; }
+  .card p { margin: 0 0 16px; color: #506178; }
+  .metric { font-size: 2.3rem; font-weight: 750; letter-spacing: -.04em; }
+  .metric small { font-size: 1rem; font-weight: 500; letter-spacing: 0; }
+  .tag { display: inline-block; background: #e5eef5; border-radius: 999px; padding: 5px 10px; font-size: .78rem; font-weight: 700; }
+  .caution { border-left: 4px solid #a66813; padding: 2px 20px; background: #fff7e8; margin-top: 32px; }
+  .links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
+</style>
+<main>
+  <div class="eyebrow">LangGraph × Hindsight · small diagnostic</div>
+  <h1>Three-scope memory POC</h1>
+  <p class="lead">Personal, organizational, and event memory with source-backed retrieval. The cards below show the published organizational-memory sample; each report shows the eight original and counterfactual probes and their evidence.</p>
+  <h2>Target passage opened</h2>
+  <div class="grid">
+    <section class="card"><span class="tag">Hindsight recall</span><h3>Saved-bank retrieval</h3><div class="metric">6/8 <small>target events</small></div><p>Target source present among passages opened for the probe.</p><a href="results/memory-bench-retrieval/report.html">Inspect retrieval report →</a></section>
+    <section class="card"><span class="tag">Hindsight + local source search</span><h3>Hybrid retrieval</h3><div class="metric">8/8 <small>target events</small></div><p>Authorized, synchronized source lines supplement Hindsight recall.</p><a href="results/memory-bench-hybrid-retrieval/report.html">Inspect retrieval report →</a></section>
+  </div>
+  <h2>Generated answer met visible criterion</h2>
+  <div class="grid">
+    <section class="card"><span class="tag">7B answer · Hindsight recall</span><h3>Saved-bank answers</h3><div class="metric">4/8 <small>criteria</small></div><p>Assistant review of answers against the displayed criterion.</p><a href="results/memory-bench-7b/report.html">Inspect answer report →</a></section>
+    <section class="card"><span class="tag">7B answer · hybrid retrieval</span><h3>Hybrid answers</h3><div class="metric">5/8 <small>criteria</small></div><p>Only one of four original/twin pairs met both criteria.</p><a href="results/memory-bench-hybrid-7b/report.html">Inspect answer report →</a></section>
+  </div>
+  <aside class="caution"><p><strong>How to read this:</strong> Eight probes are too few for an accuracy estimate. These runs reused previously populated Hindsight banks, so this is not a fresh-ingest comparison. Source-opening cutoffs were applied, but future retained facts may have affected Hindsight ranking. The answer verdicts are assistant reviews, not the benchmark's blind judge or official scores.</p></aside>
+  <div class="links"><a href="README.md">POC setup and design</a><a href="RESULTS.md">Results and limitations</a><a href="docs/benchmarks.md">Dataset and reproduction</a><a href="results/report.html">Synthetic fixture report</a></div>
+  <p>Published benchmark excerpts: <a href="https://huggingface.co/datasets/notmehul/memory-bench">notmehul/memory-bench</a>, CC BY 4.0, revision <code>e6833b44e30b602c81f7087ebf682769fff297dc</code>.</p>
+</main>
+</html>

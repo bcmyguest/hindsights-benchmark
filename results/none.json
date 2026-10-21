@@ -1,0 +1,149 @@
+[
+  {
+    "case": "personal-format",
+    "query": "What briefing format do I prefer?",
+    "expected_sources": [
+      "alice-format",
+      "org-briefing"
+    ],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 34.06724496744573
+  },
+  {
+    "case": "org-policy",
+    "query": "What is the policy for shared case narratives and identifiers?",
+    "expected_sources": [
+      "org-data-practice"
+    ],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 20.46494698151946
+  },
+  {
+    "case": "current-figures",
+    "query": "What is the current Riverside shelter occupancy and capacity?",
+    "expected_sources": [
+      "org-briefing",
+      "riverside-v3"
+    ],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 18.266755854710937
+  },
+  {
+    "case": "as-known-that-day",
+    "query": "What was Riverside shelter occupancy and capacity?",
+    "expected_sources": [
+      "org-briefing",
+      "riverside-v2"
+    ],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 16.622689086943865
+  },
+  {
+    "case": "morning-state",
+    "query": "What was Riverside shelter occupancy and capacity?",
+    "expected_sources": [
+      "org-briefing",
+      "riverside-v1"
+    ],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 17.73907197639346
+  },
+  {
+    "case": "event-history",
+    "query": "How did Riverside shelter occupancy and capacity change?",
+    "expected_sources": [
+      "org-briefing",
+      "riverside-v1",
+      "riverside-v2",
+      "riverside-v3"
+    ],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 20.617254078388214
+  },
+  {
+    "case": "case-narrative",
+    "query": "What accessible transfer did the household request?",
+    "expected_sources": [
+      "riverside-case"
+    ],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 17.641538055613637
+  },
+  {
+    "case": "unknown-abstention",
+    "query": "Who won the chess tournament?",
+    "expected_sources": [],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 19.17445589788258
+  },
+  {
+    "case": "other-tenant",
+    "query": "Riverside shelter occupancy and concise briefings",
+    "expected_sources": [],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 22.426994051784277
+  }
+]

@@ -1,0 +1,184 @@
+[
+  {
+    "case": "paraphrase-personal",
+    "query": "How does Alice like her incident updates presented?",
+    "expected_sources": [
+      "alice-format"
+    ],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: alice"
+      }
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 30.127478064969182
+  },
+  {
+    "case": "paraphrase-org",
+    "query": "What details must be scrubbed before a household account is shared?",
+    "expected_sources": [
+      "org-data-practice"
+    ],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 27.831595158204436
+  },
+  {
+    "case": "paraphrase-event",
+    "query": "How many evacuees were at Riverside's refuge after the audit?",
+    "expected_sources": [
+      "riverside-v3"
+    ],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 27.966709109023213
+  },
+  {
+    "case": "missing-event-context",
+    "query": "How many people are at Riverside shelter right now?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 30.998065834864974
+  },
+  {
+    "case": "unsupported-event-fact",
+    "query": "What is the Riverside shelter's generator fuel level?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 29.86760879866779
+  },
+  {
+    "case": "unsupported-org-policy",
+    "query": "What is the organization's vaccination policy?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 271.33614593185484
+  },
+  {
+    "case": "cross-event-secret",
+    "query": "What is the private Hilltown marker?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 21.100681042298675
+  },
+  {
+    "case": "other-user-preference",
+    "query": "What briefing length does Bob prefer?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: briefing, prefer"
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 22.289559012278914
+  }
+]

@@ -1,0 +1,213 @@
+[
+  {
+    "case": "personal-format",
+    "query": "What briefing format do I prefer?",
+    "expected_sources": [
+      "alice-format",
+      "org-briefing"
+    ],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: briefing, prefer"
+      }
+    ],
+    "precision": 1.0,
+    "recall": 0.5,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 27.96659106388688
+  },
+  {
+    "case": "org-policy",
+    "query": "What is the policy for shared case narratives and identifiers?",
+    "expected_sources": [
+      "org-data-practice"
+    ],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 25.124025996774435
+  },
+  {
+    "case": "current-figures",
+    "query": "What is the current Riverside shelter occupancy and capacity?",
+    "expected_sources": [
+      "org-briefing",
+      "riverside-v3"
+    ],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 26.40611189417541
+  },
+  {
+    "case": "as-known-that-day",
+    "query": "What was Riverside shelter occupancy and capacity?",
+    "expected_sources": [
+      "org-briefing",
+      "riverside-v2"
+    ],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 24.726446950808167
+  },
+  {
+    "case": "morning-state",
+    "query": "What was Riverside shelter occupancy and capacity?",
+    "expected_sources": [
+      "org-briefing",
+      "riverside-v1"
+    ],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 268.0729040876031
+  },
+  {
+    "case": "event-history",
+    "query": "How did Riverside shelter occupancy and capacity change?",
+    "expected_sources": [
+      "org-briefing",
+      "riverside-v1",
+      "riverside-v2",
+      "riverside-v3"
+    ],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 32.98599901609123
+  },
+  {
+    "case": "case-narrative",
+    "query": "What accessible transfer did the household request?",
+    "expected_sources": [
+      "riverside-case"
+    ],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 32.38946502096951
+  },
+  {
+    "case": "unknown-abstention",
+    "query": "Who won the chess tournament?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 33.04498014040291
+  },
+  {
+    "case": "other-tenant",
+    "query": "Riverside shelter occupancy and concise briefings",
+    "expected_sources": [],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 24.868754902854562
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "run_id": "20261020T121934Z-5bfd678c",
+  "reviewer": "Assistant qualitative inspection; not the published blind judge",
+  "verdicts": [
+    {
+      "probe_id": "P-0006-02",
+      "original": {"status": "met", "reason": "States the three-or-more-services design-doc cutoff."},
+      "twin": {"status": "met", "reason": "Changes the cutoff to two or more services, matching the twin criterion."}
+    },
+    {
+      "probe_id": "P-0011-03",
+      "original": {"status": "missed", "reason": "Says 30 minutes after the partner acknowledges the incident, shifting the required timing reference."},
+      "twin": {"status": "missed", "reason": "Invents Thursday clock times; the twin allows the first note until the next business day."}
+    },
+    {
+      "probe_id": "P-0028-01",
+      "original": {"status": "missed", "reason": "Schedules a Monday refresh instead of a recurring 60-day runbook review."},
+      "twin": {"status": "missed", "reason": "Schedules recurring Monday work instead of review only after major incidents."}
+    },
+    {
+      "probe_id": "P-0041-03",
+      "original": {"status": "missed", "reason": "Does not give the required within-30-minutes note-sharing turnaround."},
+      "twin": {"status": "missed", "reason": "Lists unrelated facts instead of putting next-morning note sharing at the top."}
+    }
+  ]
+}

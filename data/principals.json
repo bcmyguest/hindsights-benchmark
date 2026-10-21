@@ -1,0 +1,6 @@
+{
+  "alice": {"org": "relief-demo", "events": ["riverside"]},
+  "bob": {"org": "relief-demo", "events": ["hilltown"]},
+  "eve": {"org": "other-org", "events": []},
+  "curator": {"org": "relief-demo", "events": ["riverside", "hilltown"], "can_ingest": true, "can_promote": true}
+}

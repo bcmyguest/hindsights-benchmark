@@ -1,0 +1,8 @@
+.env
+.state
+.venv
+results
+mlruns
+mlflow.db*
+**/__pycache__
+*.egg-info

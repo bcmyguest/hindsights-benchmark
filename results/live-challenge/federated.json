@@ -1,0 +1,178 @@
+[
+  {
+    "case": "paraphrase-personal",
+    "query": "How does Alice like her incident updates presented?",
+    "expected_sources": [
+      "alice-format"
+    ],
+    "actual_sources": [
+      "alice-format"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: alice"
+      }
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 73.10212799347937
+  },
+  {
+    "case": "paraphrase-org",
+    "query": "What details must be scrubbed before a household account is shared?",
+    "expected_sources": [
+      "org-data-practice"
+    ],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 58.186833979561925
+  },
+  {
+    "case": "paraphrase-event",
+    "query": "How many evacuees were at Riverside's refuge after the audit?",
+    "expected_sources": [
+      "riverside-v3"
+    ],
+    "actual_sources": [
+      "riverside-v3"
+    ],
+    "answer": "[riverside-v3] Correction issued the following day: Riverside shelter occupancy at 14:00 UTC was 16 people, not the previously reported 18. Capacity remained 30 places. The east road was open.\n  Source: data/sources/sitrep-riverside-correction.md#shelter",
+    "decisions": [
+      {
+        "id": "riverside-v3",
+        "keep": true,
+        "reason": "lexical overlap: "
+      }
+    ],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 94.52917403541505
+  },
+  {
+    "case": "missing-event-context",
+    "query": "How many people are at Riverside shelter right now?",
+    "expected_sources": [],
+    "actual_sources": [
+      "org-briefing"
+    ],
+    "answer": "[org-briefing] # Briefing playbook\n\nFor a situation briefing, verify shelter occupancy and capacity against the cited report revision. Publish a briefing every 4 hours while the incident is active. State the observation time beside every figure. See [data practice](data-practice.md) for case narrative handling.\n  Source: data/knowledge/briefing.md#passage",
+    "decisions": [
+      {
+        "id": "org-briefing",
+        "keep": true,
+        "reason": "lexical overlap: shelter"
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 112.72906395606697
+  },
+  {
+    "case": "unsupported-event-fact",
+    "query": "What is the Riverside shelter's generator fuel level?",
+    "expected_sources": [],
+    "actual_sources": [
+      "org-briefing",
+      "riverside-case",
+      "riverside-v3"
+    ],
+    "answer": "[org-briefing] # Briefing playbook\n\nFor a situation briefing, verify shelter occupancy and capacity against the cited report revision. Publish a briefing every 4 hours while the incident is active. State the observation time beside every figure. See [data practice](data-practice.md) for case narrative handling.\n  Source: data/knowledge/briefing.md#passage\n[riverside-v3] Correction issued the following day: Riverside shelter occupancy at 14:00 UTC was 16 people, not the previously reported 18. Capacity remained 30 places. The east road was open.\n  Source: data/sources/sitrep-riverside-correction.md#shelter\n[riverside-case] A synthetic household requested an accessible shelter transfer. Transport was arranged. The request was reported by a case worker and has no direct personal identifiers.\n  Source: data/sources/case-riverside.md#narrative",
+    "decisions": [
+      {
+        "id": "org-briefing",
+        "keep": true,
+        "reason": "lexical overlap: shelter"
+      },
+      {
+        "id": "riverside-v3",
+        "keep": true,
+        "reason": "lexical overlap: shelter"
+      },
+      {
+        "id": "riverside-case",
+        "keep": true,
+        "reason": "lexical overlap: shelter"
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 92.62639097869396
+  },
+  {
+    "case": "unsupported-org-policy",
+    "query": "What is the organization's vaccination policy?",
+    "expected_sources": [],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 65.23511395789683
+  },
+  {
+    "case": "cross-event-secret",
+    "query": "What is the private Hilltown marker?",
+    "expected_sources": [],
+    "actual_sources": [],
+    "answer": "I have no supporting source in the authorized memory scopes.",
+    "decisions": [],
+    "precision": 1.0,
+    "recall": 1.0,
+    "answer_pass": 1.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 67.84702301956713
+  },
+  {
+    "case": "other-user-preference",
+    "query": "What briefing length does Bob prefer?",
+    "expected_sources": [],
+    "actual_sources": [
+      "alice-format",
+      "org-briefing"
+    ],
+    "answer": "[alice-format] Alice prefers concise bullet briefings, with the observation time and source beside each figure.\n  Source: data/sources/chat-alice.md#format\n[org-briefing] # Briefing playbook\n\nFor a situation briefing, verify shelter occupancy and capacity against the cited report revision. Publish a briefing every 4 hours while the incident is active. State the observation time beside every figure. See [data practice](data-practice.md) for case narrative handling.\n  Source: data/knowledge/briefing.md#passage",
+    "decisions": [
+      {
+        "id": "alice-format",
+        "keep": true,
+        "reason": "lexical overlap: briefing, prefer"
+      },
+      {
+        "id": "org-briefing",
+        "keep": true,
+        "reason": "lexical overlap: briefing"
+      }
+    ],
+    "precision": 0.0,
+    "recall": 0.0,
+    "answer_pass": 0.0,
+    "scope_pass": 1.0,
+    "numeric_grounding_pass": 1.0,
+    "latency_ms": 71.60292589105666
+  }
+]
